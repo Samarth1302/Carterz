@@ -9,8 +9,14 @@ export default function Home() {
         <meta name="description" content="Carterz E-Commerce Platform" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <img src="/home.png" width={3000}></img>
+      <div className=" flex flex-col items-center">
+        <img src="/home.png" width={1500}></img>
+        <a
+          href="https://www.freepik.com/free-vector/ecommerce-checkout-laptop-concept-illustration_21726897.htm#query=e%20commerce&position=24&from_view=keyword&track=ais"
+          className="mt-4 text-gray-500"
+        >
+          Image by storyset on Freepik
+        </a>{" "}
       </div>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
