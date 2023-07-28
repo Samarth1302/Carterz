@@ -7,6 +7,8 @@ import {
   AiOutlinePlusCircle,
   AiOutlineMinusCircle,
 } from "react-icons/ai";
+import { MdAccountCircle } from "react-icons/md";
+
 const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
@@ -41,11 +43,11 @@ const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
           </Link>
         </ul>
       </div>
-      <div
-        onClick={toggleCart}
-        className="cart cursor-pointer absolute right-0 top-4 mx-5"
-      >
-        <BsCart2 className=" text-xl md:text-2xl " />
+      <div className="cart cursor-pointer absolute right-0 top-4 mx-5 flex">
+        <Link href={"/login"}>
+          <MdAccountCircle className=" text-xl mx-4 md:text-2xl" />
+        </Link>
+        <BsCart2 onClick={toggleCart} className=" text-xl md:text-2xl" />
       </div>
       <div
         ref={ref}
