@@ -7,7 +7,7 @@ import {
   AiOutlinePlusCircle,
   AiOutlineMinusCircle,
 } from "react-icons/ai";
-const Navbar = () => {
+const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full");
@@ -59,42 +59,58 @@ const Navbar = () => {
           <AiOutlineCloseCircle />
         </span>
         <ol className="list-decimal font-semibold">
-          <li>
-            <div className="item flex my-5">
-              <div className="w-2/3 font-semibold mx-4">T-shirt - Carterz</div>
-              <div className="flex items-center font-semibold justify-center w-1/3 text-lg">
-                <AiOutlineMinusCircle className="cursor-pointer" />
-                <span className="mx-2">1</span>
-                <AiOutlinePlusCircle className="cursor-pointer" />
-              </div>
-            </div>
-          </li>{" "}
-          <li>
-            <div className="item flex my-5">
-              <div className="w-2/3 font-semibold mx-4">T-shirt - Carterz</div>
-              <div className="flex items-center font-semibold justify-center w-1/3 text-lg">
-                <AiOutlineMinusCircle className="cursor-pointer" />
-                <span className="mx-2">1</span>
-                <AiOutlinePlusCircle className="cursor-pointer" />
-              </div>
-            </div>
-          </li>{" "}
-          <li>
-            <div className="item flex my-5">
-              <div className="w-2/3 font-semibold mx-4">T-shirt - Carterz</div>
-              <div className="flex items-center font-semibold justify-center w-1/3 text-lg">
-                <AiOutlineMinusCircle className="cursor-pointer" />
-                <span className="mx-2">1</span>
-                <AiOutlinePlusCircle className="cursor-pointer" />
-              </div>
-            </div>
-          </li>
+          {Object.keys(cart).length == 0 && (
+            <div className="my-4 font-semibold">Your cart is empty</div>
+          )}
+          {Object.keys(cart).map((k) => {
+            return (
+              <li key={k}>
+                <div className="item flex my-5">
+                  <div className="w-2/3 font-semibold mx-4">
+                    {cart[k].iName}
+                  </div>
+                  <div className="flex items-center font-semibold justify-center w-1/3 text-lg">
+                    <AiOutlineMinusCircle
+                      onClick={() => {
+                        removefromCart(
+                          k,
+                          1,
+                          cart[k].price,
+                          cart[k].iName,
+                          cart[k].size,
+                          cart[k].variant
+                        );
+                      }}
+                      className="cursor-pointer"
+                    />
+                    <span className="mx-2">{cart[k].qty}</span>
+                    <AiOutlinePlusCircle
+                      onClick={() => {
+                        addtoCart(
+                          k,
+                          1,
+                          cart[k].price,
+                          cart[k].iName,
+                          cart[k].size,
+                          cart[k].variant
+                        );
+                      }}
+                      className="cursor-pointer"
+                    />
+                  </div>
+                </div>
+              </li>
+            );
+          })}
         </ol>
         <div className="flex flex-row items-center ">
           <button className="flex mr-2  text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm">
             Checkout
           </button>
-          <button className="flex ml-2 text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm">
+          <button
+            onClick={clearCart}
+            className="flex ml-2 text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm"
+          >
             Clear cart
           </button>
         </div>
