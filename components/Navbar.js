@@ -19,7 +19,7 @@ const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
   };
   const ref = useRef();
   return (
-    <div className="flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md">
+    <div className="flex flex-col md:flex-row md:justify-start justify-center items-center py-2 shadow-md sticky top-0 z-10 bg-white">
       <div className="logo mx-5">
         <Link href={"/"}>
           <Image src="/logo.png" alt="logo" width={100} height={40}></Image>
@@ -49,7 +49,9 @@ const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
       </div>
       <div
         ref={ref}
-        className="w-60 h-full sidecart absolute top-0 right-0 bg-green-200 px-8 py-10 transform transition-transform translate-x-full"
+        className={`w-60 h-[100vh] sidecart absolute top-0 right-0 bg-green-200 px-8 py-10 transform transition-transform ${
+          Object.keys(cart).length !== 0 ? "translate-x-0" : "translate-x-full"
+        } `}
       >
         <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
         <span
@@ -103,10 +105,13 @@ const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
             );
           })}
         </ol>
-        <div className="flex flex-row items-center ">
-          <button className="flex mr-2  text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm">
-            Checkout
-          </button>
+        <span className="total font-bold">SubTotal: {total}</span>
+        <div className="flex my-4">
+          <Link href={"/checkout"} legacyBehavior>
+            <button className="flex mr-2  text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm">
+              Checkout
+            </button>
+          </Link>
           <button
             onClick={clearCart}
             className="flex ml-2 text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm"
