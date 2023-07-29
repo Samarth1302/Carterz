@@ -51,7 +51,7 @@ const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
       </div>
       <div
         ref={ref}
-        className={`w-60 h-[100vh] sidecart absolute top-0 right-0 bg-green-200 px-8 py-10 transform transition-transform ${
+        className={`w-60 h-[100vh] sidecart overflow-y-scroll absolute top-0 right-0 bg-green-200 px-8 py-10 transform transition-transform ${
           Object.keys(cart).length !== 0 ? "translate-x-0" : "translate-x-full"
         } `}
       >
@@ -116,9 +116,9 @@ const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
           </Link>
           <button
             onClick={clearCart}
-            className="flex ml-2 text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm"
+            className="flex text-white bg-green-500 border-0 py-2 px-1 focus:outline-none hover:bg-green-600 rounded text-sm"
           >
-            Clear cart
+            Clear Cart
           </button>
         </div>
       </div>
