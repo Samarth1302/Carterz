@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import mongoose from "mongoose";
 import Product from "@/models/Product";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Post = ({ addtoCart, product, variants, buyNow }) => {
   const router = useRouter();
@@ -16,8 +18,28 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
     let pinJson = await pins.json();
     if (pinJson.includes(parseInt(pin))) {
       setService(true);
+      toast.success("Your pincode is serviceable", {
+        position: "bottom-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } else {
       setService(false);
+      toast.error("Sorry! Pincode is not serviceable.", {
+        position: "bottom-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
   const onChangePin = (e) => {
@@ -32,11 +54,23 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
   return (
     <>
       <section className="text-gray-600 body-font overflow-hidden">
+        <ToastContainer
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         <div className="container px-5 py-16 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <img
               alt="ecommerce"
-              className="lg:w-1/2 w-full lg:h-auto px-24 object-cover object-top rounded"
+              className="lg:w-1/2 w-full lg:h-auto px-20 object-cover object-top rounded"
               src={product.image}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -217,16 +251,16 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
                       className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10"
                     >
                       {Object.keys(variants[color]).includes("S") && (
-                        <option value={"S"}>S</option>
+                        <option value={"S"}>S (UK-7)</option>
                       )}
                       {Object.keys(variants[color]).includes("M") && (
-                        <option value={"M"}>M</option>
+                        <option value={"M"}>M (UK-8)</option>
                       )}
                       {Object.keys(variants[color]).includes("L") && (
-                        <option value={"L"}>L</option>
+                        <option value={"L"}>L (UK-9)</option>
                       )}
                       {Object.keys(variants[color]).includes("XL") && (
-                        <option value={"XL"}>XL</option>
+                        <option value={"XL"}>XL (UK-10)</option>
                       )}
                     </select>
                     <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
@@ -323,7 +357,10 @@ export async function getServerSideProps(context) {
   }
 
   let product = await Product.findOne({ slug: context.query.slug });
-  let variants = await Product.find({ title: product.title });
+  let variants = await Product.find({
+    title: product.title,
+    category: product.category,
+  });
   let colorSizeslug = {};
   for (let item of variants) {
     if (Object.keys(colorSizeslug).includes(item.color)) {

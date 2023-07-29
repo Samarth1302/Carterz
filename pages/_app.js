@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import "@/styles/globals.css";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App({ Component, pageProps }) {
   const [cart, setCart] = useState({});
@@ -75,6 +77,7 @@ export default function App({ Component, pageProps }) {
         clearCart={clearCart}
         total={total}
       />
+
       <Component
         cart={cart}
         addtoCart={addtoCart}
