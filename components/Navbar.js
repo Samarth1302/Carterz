@@ -30,16 +30,16 @@ const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
       <div className="nav">
         <ul className="flex items-center space-x-6 font-bold md:text-md">
           <Link href={"/tshirts"}>
-            <li>Tshirts</li>
+            <li className="hover:text-green-500">Tshirts</li>
           </Link>
           <Link href={"/jackets"}>
-            <li>Jackets</li>
+            <li className="hover:text-green-500">Jackets</li>
           </Link>
           <Link href={"/shoes"}>
-            <li>Shoes</li>
+            <li className="hover:text-green-500">Shoes</li>
           </Link>
           <Link href={"/trousers"}>
-            <li>Trousers</li>
+            <li className="hover:text-green-500">Trousers</li>
           </Link>
         </ul>
       </div>
@@ -71,7 +71,7 @@ const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
               <li key={k}>
                 <div className="item flex my-5">
                   <div className="w-2/3 font-semibold mx-4">
-                    {cart[k].iName}
+                    {cart[k].iName} ({cart[k].size}/{cart[k].type})
                   </div>
                   <div className="flex items-center font-semibold justify-center w-1/3 text-lg">
                     <AiOutlineMinusCircle
@@ -82,7 +82,7 @@ const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
                           cart[k].price,
                           cart[k].iName,
                           cart[k].size,
-                          cart[k].variant
+                          cart[k].type
                         );
                       }}
                       className="cursor-pointer"
@@ -96,7 +96,7 @@ const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
                           cart[k].price,
                           cart[k].iName,
                           cart[k].size,
-                          cart[k].variant
+                          cart[k].type
                         );
                       }}
                       className="cursor-pointer"
@@ -107,7 +107,7 @@ const Navbar = ({ cart, addtoCart, removefromCart, clearCart, total }) => {
             );
           })}
         </ol>
-        <span className="total font-bold">SubTotal: {total}</span>
+        <span className="total font-bold">SubTotal: ₹{total}</span>
         <div className="flex my-4">
           <Link href={"/checkout"} legacyBehavior>
             <button className="flex mr-2  text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm">

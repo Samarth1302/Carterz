@@ -120,7 +120,9 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
             return (
               <li key={k}>
                 <div className="item flex my-5">
-                  <div className="font-semibold mx-4">{cart[k].iName}</div>
+                  <div className="font-semibold mx-4">
+                    {cart[k].iName} ({cart[k].size}/{cart[k].type})
+                  </div>
                   <div className="flex items-center font-semibold justify-center w-1/3 text-lg">
                     <AiOutlineMinusCircle
                       onClick={() => {
@@ -130,7 +132,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
                           cart[k].price,
                           cart[k].iName,
                           cart[k].size,
-                          cart[k].variant
+                          cart[k].type
                         );
                       }}
                       className="cursor-pointer"
@@ -144,7 +146,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
                           cart[k].price,
                           cart[k].iName,
                           cart[k].size,
-                          cart[k].variant
+                          cart[k].type
                         );
                       }}
                       className="cursor-pointer"
@@ -155,7 +157,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
             );
           })}
         </ol>
-        <span className="total font-bold">SubTotal: {total}</span>
+        <span className="total font-bold">SubTotal: ₹{total}</span>
       </div>
       <div className="mx-4">
         <Link href={"/pay"} legacyBehavior>
