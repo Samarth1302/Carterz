@@ -1,8 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Router, useRouter } from "next/router";
+
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPass] = useState("");
+  const router = useRouter();
+
+  const handleChange = (e) => {
+    if (e.target.name == "email") {
+      setEmail(e.target.value);
+    }
+    if (e.target.name == "password") {
+      setPass(e.target.value);
+    }
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = { email, password };
+    const response = await fetch("http://localhost:3000/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await response.json();
+    setEmail("");
+    setPass("");
+    if (result.success) {
+      toast.success("Logged in successfully", {
+        position: "top-left",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setTimeout(() => {
+        router.push("http://localhost:3000");
+      }, 1000);
+    } else {
+      toast.error(result.error, {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
   return (
     <div>
+      <ToastContainer
+        position="top-left"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <section className="bg-green-100">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <div className="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
@@ -10,7 +78,11 @@ const Login = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                 Sign in to your account
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4 md:space-y-6"
+                method="POST"
+              >
                 <div>
                   <label
                     htmlFor="email"
@@ -19,9 +91,11 @@ const Login = () => {
                     Email
                   </label>
                   <input
+                    onChange={handleChange}
                     type="email"
                     name="email"
                     id="email"
+                    value={email}
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                     placeholder="name@company.com"
                     required=""
@@ -35,9 +109,11 @@ const Login = () => {
                     Password
                   </label>
                   <input
+                    onChange={handleChange}
                     type="password"
                     name="password"
                     id="password"
+                    value={password}
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                     required=""

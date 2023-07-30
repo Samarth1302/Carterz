@@ -8,8 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 const Post = ({ addtoCart, product, variants, buyNow }) => {
   const router = useRouter();
   const { slug } = router.query;
-  const [pin, setPin] = useState();
-  const [service, setService] = useState();
+  const [pin, setPin] = useState("");
+  const [service, setService] = useState("");
   const [color, setColor] = useState(product.color);
   const [size, setSize] = useState(product.size);
 
