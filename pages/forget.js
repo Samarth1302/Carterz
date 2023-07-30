@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Forget = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      router.push("/");
+    }
+  }, []);
   return (
     <div>
       <section className="bg-green-100">
