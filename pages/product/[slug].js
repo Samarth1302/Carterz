@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import mongoose from "mongoose";
 import Product from "@/models/Product";
@@ -12,6 +12,15 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
   const [service, setService] = useState("");
   const [color, setColor] = useState(product.color);
   const [size, setSize] = useState(product.size);
+  const [isShoe, setIsShoe] = useState(false);
+
+  useEffect(() => {
+    if (product.title.includes("Shoe")) {
+      setIsShoe(true);
+    } else {
+      setIsShoe(false);
+    }
+  }, []);
 
   const checkService = async () => {
     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
@@ -250,18 +259,30 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
                       }}
                       className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10"
                     >
-                      {Object.keys(variants[color]).includes("S") && (
-                        <option value={"S"}>S (UK-7)</option>
-                      )}
-                      {Object.keys(variants[color]).includes("M") && (
-                        <option value={"M"}>M (UK-8)</option>
-                      )}
-                      {Object.keys(variants[color]).includes("L") && (
-                        <option value={"L"}>L (UK-9)</option>
-                      )}
-                      {Object.keys(variants[color]).includes("XL") && (
-                        <option value={"XL"}>XL (UK-10)</option>
-                      )}
+                      {Object.keys(variants[color]).includes("S") &&
+                        (!isShoe ? (
+                          <option value={"S"}>S</option>
+                        ) : (
+                          <option value={"S"}>UK-7</option>
+                        ))}
+                      {Object.keys(variants[color]).includes("M") &&
+                        (!isShoe ? (
+                          <option value={"M"}>M</option>
+                        ) : (
+                          <option value={"M"}>UK-8</option>
+                        ))}
+                      {Object.keys(variants[color]).includes("L") &&
+                        (!isShoe ? (
+                          <option value={"L"}>L</option>
+                        ) : (
+                          <option value={"L"}>UK-9</option>
+                        ))}
+                      {Object.keys(variants[color]).includes("XL") &&
+                        (!isShoe ? (
+                          <option value={"XL"}>XL</option>
+                        ) : (
+                          <option value={"XL"}>UK-10</option>
+                        ))}
                     </select>
                     <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                       <svg

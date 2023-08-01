@@ -32,8 +32,8 @@ export default function App({ Component, pageProps }) {
     const token = localStorage.getItem("token");
     if (token) {
       setUser({ value: token });
-      setKey(Math.random());
     }
+    setKey(Math.random());
   }, [router.query]);
 
   const logout = () => {
@@ -95,18 +95,18 @@ export default function App({ Component, pageProps }) {
         waitingTime={300}
         onLoaderFinished={() => setProgress(0)}
       />
-      {/* {key && ( */}
-      <Navbar
-        user={user}
-        key={key}
-        cart={cart}
-        addtoCart={addtoCart}
-        removefromCart={removefromCart}
-        clearCart={clearCart}
-        total={total}
-        logout={logout}
-      />
-      ) {/*}*/}
+      {key && (
+        <Navbar
+          user={user}
+          key={key}
+          cart={cart}
+          addtoCart={addtoCart}
+          removefromCart={removefromCart}
+          clearCart={clearCart}
+          total={total}
+          logout={logout}
+        />
+      )}
       <Component
         cart={cart}
         addtoCart={addtoCart}
