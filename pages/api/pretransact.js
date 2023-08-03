@@ -21,7 +21,7 @@ const handler = async (req, res) => {
     paytmParams.body = {
       requestType: "Payment",
       mid: process.env.NEXT_PUBLIC_PAYTM_MID,
-      websiteName: "YOUR_WEBSITE_NAME",
+      websiteName: "Carterz",
       orderId: req.body.oid,
       callbackUrl: `${process.env.NEXT_PUBLIC_HOST}/api/posttransact`,
       txnAmount: {

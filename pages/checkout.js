@@ -53,7 +53,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
       pincode,
       phone,
     };
-    let a = await fetch(`${NEXT_PUBLIC_HOST}/api/pretransact`, {
+    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pretransact`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
