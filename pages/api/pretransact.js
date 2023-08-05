@@ -9,9 +9,23 @@ const handler = async (req, res) => {
     let product,
       subTotal = 0,
       cart = req.body.cart;
+
+    if (req.body.total <= 0) {
+      res.status(200).json({
+        success: false,
+        error: "Cart is empty!!",
+      });
+      return;
+    }
     for (let item in cart) {
       subTotal += cart[item].price * cart[item].qty;
       product = await Product.findOne({ slug: item });
+      if (product.availableQty < cart[item].qty) {
+        res.status(200).json({
+          success: false,
+          error: "Some cart items are not available",
+        });
+      }
       if (product.price != cart[item].price) {
         res.status(200).json({
           success: false,
@@ -28,6 +42,20 @@ const handler = async (req, res) => {
       return;
     }
 
+    if (req.body.phone.length !== 10 || !Number.isInteger(req.body.pincode)) {
+      res.status(200).json({
+        success: false,
+        error: "Phone number should be 10 digit long",
+      });
+      return;
+    }
+    if (req.body.pincode.length !== 6 || !Number.isInteger(req.body.pincode)) {
+      res.status(200).json({
+        success: false,
+        error: "Pincode should be 6 digit long integer",
+      });
+      return;
+    }
     let order = new Order({
       email: req.body.email,
       orderId: req.body.oid,

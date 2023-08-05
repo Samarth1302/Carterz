@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import Head from "next/head";
 import Script from "next/script";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import User from "@/models/User";
 
 const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
   const [name, setName] = useState("");
@@ -15,6 +16,15 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [disable, setDisable] = useState(true);
+  const [user, setUser] = useState({ value: null });
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("myUser"));
+    if (user.token) {
+      setUser(user);
+      setEmail(user.email);
+    }
+  }, []);
 
   const handleChange = async (e) => {
     if (e.target.name == "name") {
@@ -105,6 +115,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
           console.log("error => ", error);
         });
     } else {
+      clearCart();
       toast.error(txnRes.error, {
         position: "top-left",
         autoClose: 1000,
@@ -165,14 +176,25 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
             <label htmlFor="email" className="leading-7 text-sm text-gray-600">
               Email
             </label>
-            <input
-              onChange={handleChange}
-              value={email}
-              type="email"
-              id="email"
-              name="email"
-              className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
+            {user && user.value ? (
+              <input
+                value={user.email}
+                type="email"
+                id="email"
+                name="email"
+                className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                readOnly="true"
+              />
+            ) : (
+              <input
+                onChange={handleChange}
+                value={email}
+                type="email"
+                id="email"
+                name="email"
+                className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            )}
           </div>
         </div>
       </div>
@@ -197,12 +219,13 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
         <div className="px-2 w-1/2">
           <div className=" mb-4">
             <label htmlFor="phone" className="leading-7 text-sm text-gray-600">
-              Phone number
+              Phone Number
             </label>
             <input
               onChange={handleChange}
               value={phone}
               type="phone"
+              placeholder="Type your 10-digit phone number"
               id="phone"
               name="phone"
               className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
@@ -247,7 +270,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
         <div className="px-2 w-1/2">
           <div className=" mb-4">
             <label htmlFor="city" className="leading-7 text-sm text-gray-600">
-              City
+              District
             </label>
             <input
               value={city}

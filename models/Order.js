@@ -9,6 +9,11 @@ const OrderSchema = new mongoose.Schema(
     address: { type: String, required: true },
     amount: { type: Number, required: true },
     status: { type: String, default: "Initiate", required: true },
+    deliverystatus: {
+      type: String,
+      default: "<u></u>nshipped",
+      required: true,
+    },
   },
   { timestamps: true }
 );

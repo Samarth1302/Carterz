@@ -169,13 +169,17 @@ const Navbar = ({
         <span className="total font-bold">SubTotal: ₹{total}</span>
         <div className="flex my-4">
           <Link href={"/checkout"} legacyBehavior>
-            <button className="flex mr-2  text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm">
+            <button
+              disabled={Object.keys(cart).length === 0}
+              className=" disabled:bg-green-300 flex mr-2  text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm"
+            >
               Checkout
             </button>
           </Link>
           <button
+            disabled={Object.keys(cart).length === 0}
             onClick={clearCart}
-            className="flex text-white bg-green-500 border-0 py-2 px-1 focus:outline-none hover:bg-green-600 rounded text-sm"
+            className="  disabled:bg-green-300 flex text-white bg-green-500 border-0 py-2 px-1 focus:outline-none hover:bg-green-600 rounded text-sm"
           >
             Clear Cart
           </button>
