@@ -2,10 +2,31 @@ const https = require("https");
 const PaytmChecksum = require("paytmchecksum");
 import connectDb from "@/middleware/mongoose";
 import Order from "@/models/Order";
+import Product from "@/models/Product";
 
 const handler = async (req, res) => {
   if (req.method == "POST") {
-    //checking and validation pending only then order
+    let product,
+      subTotal = 0,
+      cart = req.body.cart;
+    for (let item in cart) {
+      subTotal += cart[item].price * cart[item].qty;
+      product = await Product.findOne({ slug: item });
+      if (product.price != cart[item].price) {
+        res.status(200).json({
+          success: false,
+          error: "The cart has been manipulated externally",
+        });
+        return;
+      }
+    }
+    if (subTotal !== req.body.total) {
+      res.status(200).json({
+        success: false,
+        error: "The cart has been manipulated externally",
+      });
+      return;
+    }
 
     let order = new Order({
       email: req.body.email,
@@ -63,8 +84,9 @@ const handler = async (req, res) => {
           });
 
           post_res.on("end", function () {
-            // console.log("Response: ", response);
-            resolve(JSON.parse(response).body);
+            let resp = JSON.parse(response).body;
+            resp.success = true;
+            resolve(resp);
           });
         });
 

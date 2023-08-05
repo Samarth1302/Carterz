@@ -25,26 +25,26 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
   const checkService = async () => {
     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
     let pinJson = await pins.json();
-    if (pinJson.includes(parseInt(pin))) {
+    if (Object.keys(pinJson).includes(pin)) {
       setService(true);
       toast.success("Your pincode is serviceable", {
-        position: "bottom-center",
+        position: "bottom-left",
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
         theme: "light",
       });
     } else {
       setService(false);
-      toast.error("Sorry! Pincode is not serviceable.", {
-        position: "bottom-center",
+      toast.error("Sorry!! Your pincode is not serviceable.", {
+        position: "bottom-left",
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
         theme: "light",
@@ -64,7 +64,7 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
     <>
       <section className="text-gray-600 body-font overflow-hidden">
         <ToastContainer
-          position="bottom-center"
+          position="bottom-left"
           autoClose={3000}
           hideProgressBar={false}
           newestOnTop={false}

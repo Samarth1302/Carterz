@@ -3,6 +3,8 @@ import Link from "next/link";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import Head from "next/head";
 import Script from "next/script";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
   const [name, setName] = useState("");
@@ -14,7 +16,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
   const [state, setState] = useState("");
   const [disable, setDisable] = useState(true);
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     if (e.target.name == "name") {
       setName(e.target.value);
     } else if (e.target.name == "email") {
@@ -25,6 +27,20 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
       setAddress(e.target.value);
     } else if (e.target.name == "pincode") {
       setPincode(e.target.value);
+      if (e.target.value.length == 6) {
+        let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
+        let pinJson = await pins.json();
+        if (Object.keys(pinJson).includes(e.target.value)) {
+          setCity(pinJson[e.target.value][0]);
+          setState(pinJson[e.target.value][1]);
+        } else {
+          setCity("");
+          setState("");
+        }
+      } else {
+        setCity("");
+        setState("");
+      }
     }
     setTimeout(() => {
       if (
@@ -61,36 +77,61 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
       body: JSON.stringify(data),
     });
     let txnRes = await a.json();
-    let txnToken = txnRes.txnToken;
-    var config = {
-      root: "",
-      flow: "DEFAULT",
-      data: {
-        orderId: oid /* update order id */,
-        token: txnToken /* update token value */,
-        tokenType: "TXN_TOKEN",
-        amount: total /* update amount */,
-      },
-      handler: {
-        notifyMerchant: function (eventName, data) {
-          console.log("notifyMerchant handler function called");
-          console.log("eventName => ", eventName);
-          console.log("data => ", data);
+    if (txnRes.success) {
+      let txnToken = txnRes.txnToken;
+      var config = {
+        root: "",
+        flow: "DEFAULT",
+        data: {
+          orderId: oid /* update order id */,
+          token: txnToken /* update token value */,
+          tokenType: "TXN_TOKEN",
+          amount: total /* update amount */,
         },
-      },
-    };
+        handler: {
+          notifyMerchant: function (eventName, data) {
+            console.log("notifyMerchant handler function called");
+            console.log("eventName => ", eventName);
+            console.log("data => ", data);
+          },
+        },
+      };
 
-    window.Paytm.CheckoutJS.init(config)
-      .then(function onSuccess() {
-        window.Paytm.CheckoutJS.invoke();
-      })
-      .catch(function onError(error) {
-        console.log("error => ", error);
+      window.Paytm.CheckoutJS.init(config)
+        .then(function onSuccess() {
+          window.Paytm.CheckoutJS.invoke();
+        })
+        .catch(function onError(error) {
+          console.log("error => ", error);
+        });
+    } else {
+      toast.error(txnRes.error, {
+        position: "top-left",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
+    }
   };
 
   return (
     <div className="container px-2 sm:m-auto">
+      <ToastContainer
+        position="top-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Head>
         <meta
           name="viewport"
@@ -195,11 +236,11 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
             </label>
             <input
               value={state}
+              onChange={handleChange}
               type="text"
               id="state"
               name="state"
               className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              readOnly={true}
             />
           </div>
         </div>
@@ -210,11 +251,11 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
             </label>
             <input
               value={city}
+              onChange={handleChange}
               type="text"
               id="city"
               name="city"
               className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              readOnly={true}
             />
           </div>
         </div>
