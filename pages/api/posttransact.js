@@ -1,9 +1,32 @@
 import connectDb from "@/middleware/mongoose";
 import Order from "@/models/Order";
 import Product from "@/models/Product";
+import PaytmChecksum from "paytmchecksum";
 
 const handler = async (req, res) => {
   let order;
+  var paytmChecksum = "";
+  var paytmParams = {};
+
+  const recvd_data = req.body;
+  for (var key in recvd_data) {
+    if (key == "CHECKSUMHASH") {
+      paytmChecksum = recvd_data[key];
+    } else {
+      paytmParams[key] = recvd_data[key];
+    }
+  }
+
+  var isValidChecksum = PaytmChecksum.verifySignature(
+    paytmParams,
+    process.env.PAYTM_KEY,
+    paytmChecksum
+  );
+  if (!isValidChecksum) {
+    res.status(500).send("PayTM Error");
+    return;
+  }
+
   if (req.body.STATUS == "TXN_SUCCESS") {
     order = await Order.findOneAndUpdate(
       { orderId: req.body.ORDERID },
