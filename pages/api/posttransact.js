@@ -30,7 +30,11 @@ const handler = async (req, res) => {
   if (req.body.STATUS == "TXN_SUCCESS") {
     order = await Order.findOneAndUpdate(
       { orderId: req.body.ORDERID },
-      { status: "Paid", payInfo: JSON.stringify(req.body) }
+      {
+        status: "Paid",
+        payInfo: JSON.stringify(req.body),
+        txnID: req.body.TXNID,
+      }
     );
     let products = order.products;
     for (let slug in products) {
@@ -42,7 +46,11 @@ const handler = async (req, res) => {
   } else if (req.body.STATUS == "PENDING") {
     order = await Order.findOneAndUpdate(
       { orderId: req.body.ORDERID },
-      { status: "Pending", payInfo: JSON.stringify(req.body) }
+      {
+        status: "Pending",
+        payInfo: JSON.stringify(req.body),
+        txnID: req.body.TXNID,
+      }
     );
   }
   res.redirect("/order?clearCart=1&id=" + order._id, 200);

@@ -53,6 +53,9 @@ export default function App({ Component, pageProps }) {
   };
 
   const addtoCart = (itemId, qty, price, iName, size, type) => {
+    if (Object.keys(cart).length == 0) {
+      setKey(Math.random());
+    }
     let newCart = cart;
     if (itemId in cart) {
       newCart[itemId].qty += 1;

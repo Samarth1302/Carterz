@@ -3,9 +3,18 @@ const PaytmChecksum = require("paytmchecksum");
 import connectDb from "@/middleware/mongoose";
 import Order from "@/models/Order";
 import Product from "@/models/Product";
+import pincodes from "../../pincode.json";
 
 const handler = async (req, res) => {
   if (req.method == "POST") {
+    if (!Object.keys(pincodes).includes(req.body.pincode)) {
+      res.status(200).json({
+        success: false,
+        error: "This pincode is not serviceable",
+        cartClear: false,
+      });
+    }
+
     let product,
       subTotal = 0,
       cart = req.body.cart;
@@ -14,6 +23,7 @@ const handler = async (req, res) => {
       res.status(200).json({
         success: false,
         error: "Cart is empty!!",
+        cartClear: false,
       });
       return;
     }
@@ -49,6 +59,7 @@ const handler = async (req, res) => {
       res.status(200).json({
         success: false,
         error: "Phone number should be 10 digit long",
+        cartClear: false,
       });
       return;
     }
@@ -59,6 +70,7 @@ const handler = async (req, res) => {
       res.status(200).json({
         success: false,
         error: "Pincode should be 6 digit long integer",
+        cartClear: false,
       });
       return;
     }
@@ -120,6 +132,7 @@ const handler = async (req, res) => {
           post_res.on("end", function () {
             let resp = JSON.parse(response).body;
             resp.success = true;
+            resp.cartClear = false;
             resolve(resp);
           });
         });

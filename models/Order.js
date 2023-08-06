@@ -7,6 +7,7 @@ const OrderSchema = new mongoose.Schema(
     payInfo: { type: String, default: "" },
     products: { type: Object, required: true },
     address: { type: String, required: true },
+    txnID: { type: String },
     amount: { type: Number, required: true },
     status: { type: String, default: "Initiated", required: true },
     deliverystatus: {
