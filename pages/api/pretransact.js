@@ -42,14 +42,20 @@ const handler = async (req, res) => {
       return;
     }
 
-    if (req.body.phone.length !== 10 || !Number.isInteger(req.body.pincode)) {
+    if (
+      req.body.phone.length !== 10 ||
+      !Number.isInteger(Number(req.body.phone))
+    ) {
       res.status(200).json({
         success: false,
         error: "Phone number should be 10 digit long",
       });
       return;
     }
-    if (req.body.pincode.length !== 6 || !Number.isInteger(req.body.pincode)) {
+    if (
+      req.body.pincode.length !== 6 ||
+      !Number.isInteger(Number(req.body.pincode))
+    ) {
       res.status(200).json({
         success: false,
         error: "Pincode should be 6 digit long integer",

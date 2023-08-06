@@ -4,24 +4,27 @@ import mongoose from "mongoose";
 import Product from "@/models/Product";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Error from "next/error";
 
-const Post = ({ addtoCart, product, variants, buyNow }) => {
+const Post = ({ addtoCart, product, variants, buyNow, error }) => {
   const router = useRouter();
   const { slug } = router.query;
   const [pin, setPin] = useState("");
-  const [service, setService] = useState("");
-  const [color, setColor] = useState(product.color);
-  const [size, setSize] = useState(product.size);
+  const [service, setService] = useState(null);
+  const [color, setColor] = useState();
+  const [size, setSize] = useState();
   const [isShoe, setIsShoe] = useState(false);
 
   useEffect(() => {
-    if (product.title.includes("Shoe")) {
-      setIsShoe(true);
-    } else {
-      setIsShoe(false);
+    if (!error) {
+      if (product.title.includes("Shoe")) {
+        setIsShoe(true);
+      } else {
+        setIsShoe(false);
+      }
+      setColor(product.color);
+      setSize(product.size);
     }
-    setColor(product.color);
-    setSize(product.size);
   }, [router.query]);
 
   const checkService = async () => {
@@ -61,6 +64,9 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
     let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newColor][newSize]["slug"]}`;
     router.push(url);
   };
+  if (error == 404) {
+    return <Error statusCode={404} />;
+  }
 
   return (
     <>
@@ -261,25 +267,29 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
                       }}
                       className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10"
                     >
-                      {Object.keys(variants[color]).includes("S") &&
+                      {color &&
+                        Object.keys(variants[color]).includes("S") &&
                         (!isShoe ? (
                           <option value={"S"}>S</option>
                         ) : (
                           <option value={"S"}>UK-7</option>
                         ))}
-                      {Object.keys(variants[color]).includes("M") &&
+                      {color &&
+                        Object.keys(variants[color]).includes("M") &&
                         (!isShoe ? (
                           <option value={"M"}>M</option>
                         ) : (
                           <option value={"M"}>UK-8</option>
                         ))}
-                      {Object.keys(variants[color]).includes("L") &&
+                      {color &&
+                        Object.keys(variants[color]).includes("L") &&
                         (!isShoe ? (
                           <option value={"L"}>L</option>
                         ) : (
                           <option value={"L"}>UK-9</option>
                         ))}
-                      {Object.keys(variants[color]).includes("XL") &&
+                      {color &&
+                        Object.keys(variants[color]).includes("XL") &&
                         (!isShoe ? (
                           <option value={"XL"}>XL</option>
                         ) : (
@@ -303,18 +313,29 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
                 </div>
               </div>
               <div className="flex">
-                <span className="title-font font-medium text-2xl text-gray-900">
-                  ₹{product.price}
-                </span>
+                <div>
+                  {product.availableQty > 0 && (
+                    <span className="title-font font-medium text-2xl text-gray-900">
+                      ₹{product.price}
+                    </span>
+                  )}
+                  {product.availableQty <= 0 && (
+                    <span className="title-font font-medium text-lg text-red-500">
+                      Out of stock
+                    </span>
+                  )}
+                </div>
                 <button
+                  disabled={product.availableQty <= 0}
                   onClick={() => {
                     buyNow(slug, 1, product.price, product.title, size, color);
                   }}
-                  className="flex ml-8 text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded"
+                  className="flex ml-8 text-white bg-green-500 disabled:bg-green-300  border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded"
                 >
                   Buy Now
                 </button>
                 <button
+                  disabled={product.availableQty <= 0}
                   onClick={() =>
                     addtoCart(
                       slug,
@@ -325,7 +346,8 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
                       color
                     )
                   }
-                  className="flex ml-4 text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded"
+                  className="flex ml-4 text-white bg-green-500 
+                  disabled:bg-green-300 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded"
                 >
                   Add to Cart
                 </button>
@@ -378,8 +400,13 @@ export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
     await mongoose.connect(process.env.MONGO_URI);
   }
-
+  let error = null;
   let product = await Product.findOne({ slug: context.query.slug });
+  if (product == null) {
+    return {
+      props: { error: 404 },
+    };
+  }
   let variants = await Product.find({
     title: product.title,
     category: product.category,
@@ -395,6 +422,7 @@ export async function getServerSideProps(context) {
   }
   return {
     props: {
+      error: error,
       product: JSON.parse(JSON.stringify(product)),
       variants: JSON.parse(JSON.stringify(colorSizeslug)),
     },

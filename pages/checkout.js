@@ -26,6 +26,20 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (
+      name.length > 3 &&
+      email.length > 3 &&
+      phone.length > 3 &&
+      address.length > 3 &&
+      pincode.length > 3
+    ) {
+      setDisable(false);
+    } else {
+      setDisable(true);
+    }
+  }, [name, email, phone, pincode, address]);
+
   const handleChange = async (e) => {
     if (e.target.name == "name") {
       setName(e.target.value);
@@ -52,19 +66,6 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
         setState("");
       }
     }
-    setTimeout(() => {
-      if (
-        name.length > 3 &&
-        email.length > 3 &&
-        phone.length > 3 &&
-        address.length > 3 &&
-        pincode.length > 3
-      ) {
-        setDisable(false);
-      } else {
-        setDisable(true);
-      }
-    }, 100);
   };
 
   const initPayment = async () => {
@@ -337,7 +338,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
         <Link href={"/checkout"} legacyBehavior>
           <button
             disabled={disable}
-            // onClick={initPayment}
+            onClick={initPayment}
             className="disabled:bg-green-300 flex mr-2  text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm"
           >
             Pay ₹{total}
