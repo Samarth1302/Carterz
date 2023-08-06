@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 const Myaccount = () => {
   const router = useRouter();
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
+    if (!localStorage.getItem("myUser")) {
       router.push("/");
     }
   }, []);

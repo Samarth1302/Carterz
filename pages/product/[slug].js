@@ -20,7 +20,9 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
     } else {
       setIsShoe(false);
     }
-  }, []);
+    setColor(product.color);
+    setSize(product.size);
+  }, [router.query]);
 
   const checkService = async () => {
     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
@@ -57,7 +59,7 @@ const Post = ({ addtoCart, product, variants, buyNow }) => {
 
   const refreshVar = (newSize, newColor) => {
     let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newColor][newSize]["slug"]}`;
-    window.location = url;
+    router.push(url);
   };
 
   return (

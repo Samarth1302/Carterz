@@ -6,7 +6,7 @@ const Forget = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
+    if (localStorage.getItem("myUser")) {
       router.push("/");
     }
   }, []);
