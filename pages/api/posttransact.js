@@ -9,7 +9,7 @@ const handler = async (req, res) => {
   var paytmParams = {};
 
   const recvd_data = req.body;
-  for (var key in recvd_data) {
+  for (let key in recvd_data) {
     if (key == "CHECKSUMHASH") {
       paytmChecksum = recvd_data[key];
     } else {
