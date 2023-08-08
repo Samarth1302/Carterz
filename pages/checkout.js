@@ -5,7 +5,6 @@ import Head from "next/head";
 import Script from "next/script";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import User from "@/models/User";
 
 const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
   const [name, setName] = useState("");
@@ -19,11 +18,12 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
   const [user, setUser] = useState({ value: null });
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("myUser"));
-    if (user && user.token) {
-      setUser(user);
-      setEmail(user.email);
+    const myuser = JSON.parse(localStorage.getItem("myUser"));
+    if (myuser && myuser.token) {
+      setUser(myuser);
+      setEmail(myuser.email);
     }
+    fetchData(myuser.token);
   }, []);
 
   useEffect(() => {
@@ -40,6 +40,35 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
     }
   }, [name, email, phone, pincode, address]);
 
+  const fetchData = async (token) => {
+    let data = { token: token };
+    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    let res = await a.json();
+    setName(res.name);
+    setAddress(res.address);
+    setPincode(res.pincode);
+    setPhone(res.phone);
+    getPincode(res.pincode);
+  };
+
+  const getPincode = async (pin) => {
+    let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
+    let pinJson = await pins.json();
+    if (Object.keys(pinJson).includes(pin)) {
+      setCity(pinJson[pine][0]);
+      setState(pinJson[pin][1]);
+    } else {
+      setCity("");
+      setState("");
+    }
+  };
+
   const handleChange = async (e) => {
     if (e.target.name == "name") {
       setName(e.target.value);
@@ -52,15 +81,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
     } else if (e.target.name == "pincode") {
       setPincode(e.target.value);
       if (e.target.value.length == 6) {
-        let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
-        let pinJson = await pins.json();
-        if (Object.keys(pinJson).includes(e.target.value)) {
-          setCity(pinJson[e.target.value][0]);
-          setState(pinJson[e.target.value][1]);
-        } else {
-          setCity("");
-          setState("");
-        }
+        getPincode(e.target.value);
       } else {
         setCity("");
         setState("");
@@ -161,7 +182,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
       <div className="mx-auto flex my-2">
         <div className="px-2 w-1/2">
           <div className=" mb-4">
-            <label htmlFor="email" className="leading-7 text-sm text-gray-600">
+            <label htmlFor="name" className="leading-7 text-sm text-gray-600">
               Name
             </label>
             <input
@@ -186,7 +207,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
                 id="email"
                 name="email"
                 className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                readOnly="true"
+                readOnly={true}
               />
             ) : (
               <input

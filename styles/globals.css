@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+}
+.errhead {
+  position: relative;
+}
+
+.errhead::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: rgb(251, 223, 219);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  z-index: -1;
+  transform-origin: right;
+}
+
+.errhead:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}

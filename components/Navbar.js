@@ -47,9 +47,9 @@ const Navbar = ({
             onMouseLeave={() => {
               setDropdown(false);
             }}
-            className="absolute right-11 bg-white shadow-lg border top-10 rounded-md px-5 w-32 py-2 z-20"
+            className="fixed right-11 bg-white shadow-lg border top-10 rounded-md px-5 w-32 py-2 z-20"
           >
-            <ul>
+            <ul className="text-xl">
               <Link href={"/myaccount"}>
                 <li className="py-1 text-sm hover:text-green-600 font-bold">
                   My Account
@@ -83,8 +83,8 @@ const Navbar = ({
             <Image src="/logo.png" alt="logo" width={100} height={40}></Image>
           </Link>
         </div>
-        <div className="nav">
-          <ul className="flex items-center mx-7 space-x-6 font-bold md:text-md">
+        <div className="nav text-xl">
+          <ul className="flex items-center mx-7 space-x-6 font-bold  md:text-base">
             <Link href={"/tshirts"}>
               <li className="hover:text-green-500">Tshirts</li>
             </Link>
@@ -124,7 +124,7 @@ const Navbar = ({
         </div>
         <div
           ref={ref}
-          className={`w-60 h-[100vh] sidecart top-0 overflow-y-scroll absolute bg-green-200 px-8 py-10 transition-all ${
+          className={`w-60 h-[100vh] sidecart top-0 overflow-y-scroll absolute bg-green-200 px-8 py-10 text-base transition-all ${
             sidebar ? "right-0" : "-right-96"
           } `}
         >
@@ -135,18 +135,18 @@ const Navbar = ({
           >
             <AiOutlineCloseCircle />
           </span>
-          <ol className="list-decimal font-semibold">
+          <ol className="list-decimal font-semibold ">
             {Object.keys(cart).length == 0 && (
               <div className="my-4 font-semibold">Your cart is empty</div>
             )}
             {Object.keys(cart).map((k) => {
               return (
                 <li key={k}>
-                  <div className="item flex my-5">
+                  <div className="item flex my-5 ">
                     <div className="w-2/3 font-semibold mx-4">
                       {cart[k].iName} ({cart[k].size}/{cart[k].type})
                     </div>
-                    <div className="flex items-center font-semibold justify-center w-1/3 text-lg">
+                    <div className="flex items-center font-semibold justify-center w-1/3 ">
                       <AiOutlineMinusCircle
                         onClick={() => {
                           removefromCart(
@@ -160,7 +160,7 @@ const Navbar = ({
                         }}
                         className="cursor-pointer"
                       />
-                      <span className="mx-2">{cart[k].qty}</span>
+                      <span className="mx-2 text-sm">{cart[k].qty}</span>
                       <AiOutlinePlusCircle
                         onClick={() => {
                           addtoCart(

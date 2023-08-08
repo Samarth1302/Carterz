@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
-
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -15,6 +14,7 @@ const Signup = () => {
       router.push("/");
     }
   }, []);
+
   const handleChange = (e) => {
     if (e.target.name == "name") {
       setName(e.target.value);
@@ -40,7 +40,7 @@ const Signup = () => {
     setEmail("");
     setName("");
     setPass("");
-    toast.success("You are now a registered user", {
+    toast.success("You are now a registered user. Please login now", {
       position: "top-left",
       autoClose: 2000,
       hideProgressBar: false,
@@ -50,6 +50,9 @@ const Signup = () => {
       progress: undefined,
       theme: "light",
     });
+    setTimeout(() => {
+      router.push("/login");
+    }, 3000);
   };
   return (
     <div>
