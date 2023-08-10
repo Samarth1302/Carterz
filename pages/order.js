@@ -99,7 +99,7 @@ const MyOrder = ({ order, clearCart }) => {
 
 export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGODB_URI);
   }
 
   let order = await Order.findById(context.query.id);
