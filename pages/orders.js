@@ -35,6 +35,9 @@ const Orders = () => {
         <div className="flex flex-col">
           <div className="overflow-x-auto px-8 sm:-mx-6 lg:-mx-8">
             <div className="py-2 inline-block min-w-full  sm:px-6 lg:px-8">
+              {Object.keys(orders).length === 0 && (
+                <p>Place an order successfully to view here.</p>
+              )}
               <div className="overflow-hidden">
                 <table className="min-w-full text-left">
                   <thead className="bg-white border-b font-medium">
