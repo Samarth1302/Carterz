@@ -78,7 +78,7 @@ const Trousers = ({ products }) => {
 };
 export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGODB_URI);
+    await mongoose.connect(process.env.MONGO_URI);
   }
 
   let products = await Product.find({ category: "trousers" });
