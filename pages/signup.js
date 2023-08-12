@@ -29,7 +29,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = { name, email, password };
-    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/signup`, {
+    const response = await fetch(`/api/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

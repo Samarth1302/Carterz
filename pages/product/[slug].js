@@ -27,7 +27,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
   }, [router.query]);
 
   const checkService = async () => {
-    let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
+    let pins = await fetch(`/api/pincode`);
     let pinJson = await pins.json();
     if (Object.keys(pinJson).includes(pin)) {
       setService(true);
@@ -60,7 +60,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
   };
 
   const refreshVar = (newSize, newColor) => {
-    let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newColor][newSize]["slug"]}`;
+    let url = `/product/${variants[newColor][newSize]["slug"]}`;
     router.push(url);
   };
   if (error == 404) {
