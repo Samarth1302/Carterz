@@ -55,7 +55,7 @@ const Login = () => {
         theme: "light",
       });
       setTimeout(() => {
-        router.push(``);
+        router.push(`${process.env.NEXT_PUBLIC_HOST}`);
       }, 1000);
     } else {
       toast.error(result.error, {
