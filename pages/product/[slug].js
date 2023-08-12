@@ -27,7 +27,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
   }, [router.query]);
 
   const checkService = async () => {
-    let pins = await fetch(`/api/pincode`);
+    let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
     let pinJson = await pins.json();
     if (Object.keys(pinJson).includes(pin)) {
       setService(true);

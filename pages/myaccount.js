@@ -29,7 +29,7 @@ const Myaccount = () => {
 
   const fetchData = async (token) => {
     let data = { token: token };
-    let a = await fetch(`/api/getuser`, {
+    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const Myaccount = () => {
 
   const handleUserSubmit = async () => {
     let data = { token: user.token, address, name, phone, pincode };
-    let a = await fetch(`/api/updateuser`, {
+    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updateuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,13 +82,16 @@ const Myaccount = () => {
     let res;
     if (npassword == cpassword) {
       let data = { token: user.token, password, cpassword, npassword };
-      let a = await fetch(`/api/updatepassword`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      let a = await fetch(
+        `${process.env.NEXT_PUBLIC_HOST}/api/updatepassword`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
       res = await a.json();
     } else {
       res = { success: false };

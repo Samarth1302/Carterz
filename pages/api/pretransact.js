@@ -94,7 +94,7 @@ const handler = async (req, res) => {
       mid: process.env.NEXT_PUBLIC_PAYTM_MID,
       websiteName: "Carterz",
       orderId: req.body.oid,
-      callbackUrl: `/api/posttransact`,
+      callbackUrl: `${process.env.NEXT_PUBLIC_HOST}/api/posttransact`,
       txnAmount: {
         value: req.body.total,
         currency: "INR",
@@ -119,7 +119,7 @@ const handler = async (req, res) => {
         var options = {
           hostname: "securegw.paytm.in",
           port: 443,
-          path: `/theia/api/v1/initiateTransaction?mid=${process.env.NEXT_PUBLIC_PAYTM_MID}&orderId=${req.body.oid}`,
+          path: `${process.env.NEXT_PUBLIC_HOST}/theia/api/v1/initiateTransaction?mid=${process.env.NEXT_PUBLIC_PAYTM_MID}&orderId=${req.body.oid}`,
           method: "POST",
           headers: {
             "Content-Type": "application/json",
