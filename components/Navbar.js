@@ -83,8 +83,8 @@ const Navbar = ({
             <Image src="/logo.png" alt="logo" width={100} height={40}></Image>
           </Link>
         </div>
-        <div className="nav text-xl">
-          <ul className="flex items-center mx-7 space-x-6 font-bold  md:text-base">
+        <div className="nav">
+          <ul className="flex items-center mx-7 space-x-6 font-bold  md:text-lg">
             <Link href={"/tshirts"}>
               <li className="hover:text-green-500">Tshirts</li>
             </Link>

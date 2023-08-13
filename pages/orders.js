@@ -3,6 +3,7 @@ import Order from "@/models/Order";
 import mongoose from "mongoose";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
 
 const Orders = () => {
   const router = useRouter();
@@ -30,15 +31,25 @@ const Orders = () => {
 
   return (
     <div>
+      <Head>
+        <title>My Orders - Carterz</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+      </Head>
       <h1 className="font-semibold text-center text-xl p-8">My Orders</h1>
       <div className="container mx-auto">
         <div className="flex flex-col">
           <div className="overflow-x-auto px-8 sm:-mx-6 lg:-mx-8">
             <div className="py-2 inline-block min-w-full  sm:px-6 lg:px-8">
-              {Object.keys(orders).length === 0 && (
-                <p>Place an order successfully to view here.</p>
-              )}
               <div className="overflow-hidden">
+                {Object.keys(orders).length === 0 && (
+                  <p className="text-center text-red-700">
+                    No previous orders retrieved. Place an order successfully to
+                    view here.
+                  </p>
+                )}
                 <table className="min-w-full text-left">
                   <thead className="bg-white border-b font-medium">
                     <tr>

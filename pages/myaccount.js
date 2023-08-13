@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -144,6 +145,13 @@ const Myaccount = () => {
 
   return (
     <div className="container mx-6 my-9">
+      <Head>
+        <title>My Account - Carterz</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+      </Head>
       <ToastContainer
         position="top-left"
         autoClose={3000}

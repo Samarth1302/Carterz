@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -9,31 +10,31 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className=" flex flex-col items-center">
-        <img src="/home.png" width={1500}></img>
+        <Image src="/home.png" alt="Home" width={800} height={550} />
         <a
           href="https://www.freepik.com/free-vector/ecommerce-checkout-laptop-concept-illustration_21726897.htm#query=e%20commerce&position=24&from_view=keyword&track=ais"
-          className="mt-4 text-gray-500"
+          className="mt-1 text-xs text-gray-400"
         >
           Image by storyset on Freepik
         </a>{" "}
       </div>
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 py-12 mx-auto">
           <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
               Shop the Web using Carterz
             </h1>
-            <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
+            <h4 className=" sm:text-lg lg:w-1/2 w-full leading-relaxed text-gray-500">
               Shopping needs fulfilled using the web
-            </p>
+            </h4>
           </div>
           <div className="flex flex-wrap -m-4">
             <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="border border-gray-200 p-6 rounded-lg">
+              <div className=" bg-green-50 border border-gray-200 p-6 rounded-lg">
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
                   <svg
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#22c55eff"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
@@ -44,20 +45,20 @@ export default function Home() {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Shooting Stars
+                  Luxe Haven
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Elevate your lifestyle with LuxeHaven's exquisite collection
+                  of premium fashion. Discover elegance and comfort combined.
                 </p>
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="border border-gray-200 p-6 rounded-lg">
+              <div className="  bg-green-50 border border-gray-200 p-6 rounded-lg">
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
                   <svg
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#22c55eff"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
@@ -70,20 +71,20 @@ export default function Home() {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  The Catalyzer
+                  Stellar Wear
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Unveil a universe of fashion possibilities. From trendy street
+                  styles to chic evening ensembles, find your star-studded look.
                 </p>
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="border border-gray-200 p-6 rounded-lg">
+              <div className="  bg-green-50 border border-gray-200 p-6 rounded-lg">
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
                   <svg
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#22c55eff"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
@@ -95,20 +96,21 @@ export default function Home() {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Neptune
+                  Tech Fusion
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Dive into the world of innovation with TechFusion's futuristic
+                  clothing line. Seamlessly merge fashion with your everyday
+                  life.
                 </p>
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="border border-gray-200 p-6 rounded-lg">
+              <div className="  bg-green-50 border border-gray-200 p-6 rounded-lg">
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
                   <svg
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#22c55eff"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
@@ -119,20 +121,20 @@ export default function Home() {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Melanchole
+                  Wanderlust Wares
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Embark on a journey of discovery, explore a curated collection
+                  of dressing essentials that inspire adventure.
                 </p>
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="border border-gray-200 p-6 rounded-lg">
+              <div className="  bg-green-50 border border-gray-200 p-6 rounded-lg">
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
                   <svg
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#22c55eff"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
@@ -143,20 +145,20 @@ export default function Home() {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Bunker
+                  Zen Zone
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Find tranquility in the chaos with ZenZone's mindfulness
+                  products. Create your serene haven at home.
                 </p>
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="border border-gray-200 p-6 rounded-lg">
+              <div className="  bg-green-50 border border-gray-200 p-6 rounded-lg">
                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
                   <svg
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#22c55eff"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
@@ -167,11 +169,11 @@ export default function Home() {
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Ramona Falls
+                  Eco Vibe
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waist co, subway
-                  tile poke farm.
+                  Embrace sustainability in style with EcoVibe. Discover
+                  eco-friendly fashion products that resonate with your values.
                 </p>
               </div>
             </div>

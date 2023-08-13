@@ -175,8 +175,8 @@ const Footer = () => {
         <div className="bg-gray-100">
           <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p className="text-gray-500 text-sm text-center sm:text-left">
-              © 2023 Carterz — This project is based on the learnings from Code
-              with Harry
+              © 2023 Carterz (Samarth) — This project is based on the learnings
+              from Code with Harry
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
               <Link href={"/"} className="text-gray-500">

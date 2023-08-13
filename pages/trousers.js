@@ -2,13 +2,21 @@ import React from "react";
 import Link from "next/link";
 import Product from "@/models/Product";
 import mongoose from "mongoose";
+import Head from "next/head";
 
 const Trousers = ({ products }) => {
   return (
     <div>
+      <Head>
+        <title>Trousers - Carterz</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+      </Head>
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap -m-4 justify-center">
+        <div className="min-h-screen container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap -m-4 justify-center mx-5">
             {Object.keys(products).length === 0 && (
               <p>Sorry all trousers are out of stock. Stay tuned..</p>
             )}

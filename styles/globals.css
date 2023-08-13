@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-}
 .errhead {
   position: relative;
 }

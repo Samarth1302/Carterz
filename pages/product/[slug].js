@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import Product from "@/models/Product";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Head from "next/head";
 
 const Post = ({ addtoCart, product, variants, buyNow, error }) => {
   const router = useRouter();
@@ -69,6 +70,13 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
 
   return (
     <>
+      <Head>
+        <title>Product page - Carterz</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+      </Head>
       <section className="text-gray-600 body-font overflow-hidden">
         <ToastContainer
           position="bottom-left"
@@ -82,11 +90,11 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
           pauseOnHover
           theme="light"
         />
-        <div className="container px-5 py-16 mx-auto">
+        <div className="min-h-screen container px-5 py-16 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <img
               alt="ecommerce"
-              className="lg:w-1/2 w-full lg:h-auto px-20 object-cover object-top rounded"
+              className="lg:w-1/2 w-auto lg:h-full px-20 object-cover object-top rounded"
               src={product.image}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
