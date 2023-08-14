@@ -167,10 +167,10 @@ const Signup = () => {
                 >
                   Sign up
                 </button>
-                <p className="text-sm font-light text-gray-500 ">
+                <p className="text-sm font-medium text-gray-800 ">
                   Already a registered user ?{" "}
                   <Link href="/login" legacyBehavior>
-                    <a className="font-medium text-green-700 text-primary-600 hover:underline ">
+                    <a className="font-semibold text-green-700 text-primary-600 hover:underline ">
                       Sign in
                     </a>
                   </Link>
