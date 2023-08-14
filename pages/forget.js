@@ -40,7 +40,7 @@ const Forget = () => {
         theme: "light",
       });
     } else {
-      toast.error("Invalid user email", {
+      toast.error("Invalid credentials", {
         position: "top-left",
         autoClose: 1000,
         hideProgressBar: false,
@@ -54,7 +54,7 @@ const Forget = () => {
   };
   const resetPassword = async () => {
     if (password == cpassword) {
-      let data = { email, sendMail: false };
+      let data = { email, sendMail: false, cpassword, password };
       let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/forgot`, {
         method: "POST",
         headers: {
@@ -126,6 +126,10 @@ const Forget = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                 Forgot your password
               </h1>
+              <span className="text-sm text-red-500">
+                Service currently unavailable. Just create a new account since
+                this is a demo project.
+              </span>
               {router.query.token && (
                 <div>
                   <div className="my-4">
@@ -173,8 +177,7 @@ const Forget = () => {
                     </span>
                   )}
                   <button
-                    onC
-                    lick={resetPassword}
+                    // onClick={resetPassword}
                     type="submit"
                     className="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-4 
         focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
@@ -213,7 +216,7 @@ const Forget = () => {
                   </div>
 
                   <button
-                    onClick={sendEmail}
+                    // onClick={sendEmail}
                     type="submit"
                     className="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-4 
         focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
