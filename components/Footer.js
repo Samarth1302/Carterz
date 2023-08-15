@@ -14,15 +14,15 @@ const Footer = () => {
             </Link>
           </div>
           <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            <div className="lg:w-1/3 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                SHOP
+                PRODUCTS
               </h2>
               <nav className="list-none mb-10">
                 <li>
                   <Link
                     href={"/tshirts"}
-                    className="text-gray-600 hover:text-gray-800"
+                    className="text-gray-600 hover:text-green-500"
                   >
                     T-shirts
                   </Link>
@@ -30,7 +30,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/jackets"}
-                    className="text-gray-600 hover:text-gray-800"
+                    className="text-gray-600 hover:text-green-500"
                   >
                     Jackets
                   </Link>
@@ -38,7 +38,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/trousers"}
-                    className="text-gray-600 hover:text-gray-800"
+                    className="text-gray-600 hover:text-green-500"
                   >
                     Trousers
                   </Link>
@@ -46,53 +46,15 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/shoes"}
-                    className="text-gray-600 hover:text-gray-800"
+                    className="text-gray-600 hover:text-green-500"
                   >
                     Shoes
                   </Link>
                 </li>
               </nav>
             </div>
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                ABOUT
-              </h2>
-              <nav className="list-none mb-10">
-                <li>
-                  <Link
-                    href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    First Link
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    Second Link
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    Third Link
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    Fourth Link
-                  </Link>
-                </li>
-              </nav>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+
+            <div className="lg:w-1/3 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
                 POLICY
               </h2>
@@ -100,72 +62,48 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
+                    className="text-gray-600 hover:text-green-500"
                   >
-                    First Link
+                    Privacy Policy
                   </Link>
                 </li>
                 <li>
                   <Link
                     href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
+                    className="text-gray-600 hover:text-green-500"
                   >
-                    Second Link
+                    Return Policy
                   </Link>
                 </li>
                 <li>
                   <Link
                     href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
+                    className="text-gray-600 hover:text-green-500"
                   >
-                    Third Link
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    Fourth Link
+                    Terms and Conditions
                   </Link>
                 </li>
               </nav>
             </div>
-            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            <div className="lg:w-1/3 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                HELP
+                SERVICES
               </h2>
               <nav className="list-none mb-10">
                 <li>
                   <Link
                     href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
+                    className="text-gray-600 hover:text-green-500"
                   >
-                    First Link
+                    Contact Us
                   </Link>
                 </li>
                 <li>
                   <Link
                     href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
+                    className="text-gray-600 hover:text-green-500"
                   >
-                    Second Link
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    Third Link
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={"/"}
-                    className="text-gray-600 hover:text-gray-800"
-                  >
-                    Fourth Link
+                    About
                   </Link>
                 </li>
               </nav>

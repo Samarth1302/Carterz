@@ -30,35 +30,11 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap -m-4">
             <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className=" bg-green-50 border border-gray-200 p-6 rounded-lg">
-                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
+              <div className=" border border-gray-200 p-6 rounded-lg">
+                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-black-500 mb-4">
                   <svg
                     fill="none"
-                    stroke="#22c55eff"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="w-6 h-6"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                  </svg>
-                </div>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Luxe Haven
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Elevate your lifestyle with LuxeHaven's exquisite collection
-                  of premium fashion. Discover elegance and comfort combined.
-                </p>
-              </div>
-            </div>
-            <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="  bg-green-50 border border-gray-200 p-6 rounded-lg">
-                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
-                  <svg
-                    fill="none"
-                    stroke="#22c55eff"
+                    stroke="#4b5563"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
@@ -74,106 +50,58 @@ export default function Home() {
                   Stellar Wear
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Unveil a universe of fashion possibilities. From trendy street
-                  styles to chic evening ensembles, find your star-studded look.
+                  Unveil a universe of possibilities. From trendy street styles
+                  to chic evening ensembles, find your star-studded look.
                 </p>
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="  bg-green-50 border border-gray-200 p-6 rounded-lg">
-                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
+              <div className="border border-gray-200 p-6 rounded-lg">
+                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-black-500 mb-4">
                   <svg
-                    fill="none"
-                    stroke="#22c55eff"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="w-6 h-6"
-                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="text-3xl"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
+                    <path d="M308 96c6.627 0 12-5.373 12-12V44c0-6.627-5.373-12-12-12H12C5.373 32 0 37.373 0 44v44.748c0 6.627 5.373 12 12 12h85.28c27.308 0 48.261 9.958 60.97 27.252H12c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h158.757c-6.217 36.086-32.961 58.632-74.757 58.632H12c-6.627 0-12 5.373-12 12v53.012c0 3.349 1.4 6.546 3.861 8.818l165.052 152.356a12.001 12.001 0 0 0 8.139 3.182h82.562c10.924 0 16.166-13.408 8.139-20.818L116.871 319.906c76.499-2.34 131.144-53.395 138.318-127.906H308c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-58.69c-3.486-11.541-8.28-22.246-14.252-32H308z"></path>
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Tech Fusion
+                  Value for money
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Dive into the world of innovation with TechFusion's futuristic
-                  clothing line. Seamlessly merge fashion with your everyday
-                  life.
+                  Unbox a smarter way to shop. Our haven is designed to stretch
+                  your budget without compromising quality.
                 </p>
               </div>
             </div>
             <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="  bg-green-50 border border-gray-200 p-6 rounded-lg">
-                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
+              <div className="border border-gray-200 p-6 rounded-lg">
+                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-black-500 mb-4">
                   <svg
-                    fill="none"
                     stroke="#22c55eff"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="w-6 h-6"
-                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 640 512"
+                    class="text-3xl"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
+                    <path d="M624 352h-16V243.9c0-12.7-5.1-24.9-14.1-33.9L494 110.1c-9-9-21.2-14.1-33.9-14.1H416V48c0-26.5-21.5-48-48-48H112C85.5 0 64 21.5 64 48v48H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h272c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H40c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h208c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h208c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H64v128c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h48c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM160 464c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm320 0c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm80-208H416V144h44.1l99.9 99.9V256z"></path>
                   </svg>
                 </div>
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Wanderlust Wares
+                  Fast Delivery
                 </h2>
                 <p className="leading-relaxed text-base">
-                  Embark on a journey of discovery, explore a curated collection
-                  of dressing essentials that inspire adventure.
-                </p>
-              </div>
-            </div>
-            <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="  bg-green-50 border border-gray-200 p-6 rounded-lg">
-                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
-                  <svg
-                    fill="none"
-                    stroke="#22c55eff"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="w-6 h-6"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                  </svg>
-                </div>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Zen Zone
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Find tranquility in the chaos with ZenZone's mindfulness
-                  products. Create your serene haven at home.
-                </p>
-              </div>
-            </div>
-            <div className="xl:w-1/3 md:w-1/2 p-4">
-              <div className="  bg-green-50 border border-gray-200 p-6 rounded-lg">
-                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-black-100 text-black-500 mb-4">
-                  <svg
-                    fill="none"
-                    stroke="#22c55eff"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="w-6 h-6"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  </svg>
-                </div>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  Eco Vibe
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Embrace sustainability in style with EcoVibe. Discover
-                  eco-friendly fashion products that resonate with your values.
+                  Get what you love, when you want it. Carterz ensures your
+                  cravings are met at lightning speed, with seamless deliveries.
                 </p>
               </div>
             </div>
