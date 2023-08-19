@@ -8,7 +8,7 @@ const Contact = () => {
         <title>Contact Us - Carterz</title>
       </Head>
 
-      <header className="bg-green-700 py-4">
+      <header className="bg-blue-700 py-4">
         <div className="container mx-auto">
           <h1 className="text-3xl font-semibold text-white">Contact Us</h1>
         </div>
@@ -90,7 +90,7 @@ const Contact = () => {
             <div className="flex items-center justify-end">
               <button
                 disabled={true}
-                className="bg-green-500 hover:bg-green-700 disabled:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-blue-500 hover:bg-blue-700 disabled:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 Send

@@ -7,7 +7,7 @@ export default function Return() {
         <title>Return Policy - Carterz</title>
       </Head>
 
-      <header className="bg-green-600 py-4">
+      <header className="bg-blue-600 py-4">
         <div className="container mx-auto">
           <h1 className="text-3xl font-semibold text-white">Return Policy</h1>
         </div>

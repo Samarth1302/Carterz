@@ -119,7 +119,7 @@ const Forget = () => {
         pauseOnHover
         theme="light"
       />
-      <section className="bg-green-100">
+      <section className="bg-blue-100">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen lg:py-0">
           <div className="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -179,15 +179,15 @@ const Forget = () => {
                   <button
                     // onClick={resetPassword}
                     type="submit"
-                    className="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-4 
-        focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                    className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 
+        focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                   >
                     Continue
                   </button>
                   <p className="text-sm font-light text-gray-500 ">
                     Remember your password ?{" "}
                     <Link href="/login" legacyBehavior>
-                      <a className="font-medium text-green-700 text-primary-600 hover:underline ">
+                      <a className="font-medium text-blue-700 text-primary-600 hover:underline ">
                         Sign in
                       </a>
                     </Link>
@@ -218,15 +218,15 @@ const Forget = () => {
                   <button
                     // onClick={sendEmail}
                     type="submit"
-                    className="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-4 
-        focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                    className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 
+        focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
                   >
                     Continue
                   </button>
                   <p className=" py-4 text-sm font-light text-gray-500 ">
                     Remember your password ?{" "}
                     <Link href="/login" legacyBehavior>
-                      <a className="font-medium text-green-700 text-primary-600 hover:underline ">
+                      <a className="font-medium text-blue-700 text-primary-600 hover:underline ">
                         Sign in
                       </a>
                     </Link>

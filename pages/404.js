@@ -7,7 +7,7 @@ export default function Custom404() {
         404 - Page Not Found
       </h1>
       <Link
-        className=" py-5 font-medium text-green-600 text-3xl hover:text-green-800"
+        className=" py-5 font-medium text-blue-600 text-3xl hover:text-blue-800"
         href="/"
       >
         Go back home

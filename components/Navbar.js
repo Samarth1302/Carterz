@@ -62,12 +62,12 @@ const Navbar = ({
           >
             <ul className="text-xl">
               <Link href={"/myaccount"}>
-                <li className="py-1 text-sm hover:text-green-600 font-bold">
+                <li className="py-1 text-sm hover:text-blue-600 font-bold">
                   My Account
                 </li>{" "}
               </Link>
               <Link href={"/orders"}>
-                <li className="py-1 text-sm hover:text-green-600 font-bold">
+                <li className="py-1 text-sm hover:text-blue-600 font-bold">
                   Orders
                 </li>
               </Link>
@@ -75,7 +75,7 @@ const Navbar = ({
               <button>
                 <li
                   onClick={logout}
-                  className="py-1 text-sm hover:text-green-600 font-bold"
+                  className="py-1 text-sm hover:text-blue-600 font-bold"
                 >
                   Logout
                 </li>
@@ -97,16 +97,16 @@ const Navbar = ({
         <div className="nav">
           <ul className="flex items-center mx-7 space-x-6 font-bold  md:text-lg">
             <Link href={"/tshirts"}>
-              <li className="hover:text-green-500">Tshirts</li>
+              <li className="hover:text-blue-500">Tshirts</li>
             </Link>
             <Link href={"/jackets"}>
-              <li className="hover:text-green-500">Jackets</li>
+              <li className="hover:text-blue-500">Jackets</li>
             </Link>
             <Link href={"/shoes"}>
-              <li className="hover:text-green-500">Shoes</li>
+              <li className="hover:text-blue-500">Shoes</li>
             </Link>
             <Link href={"/trousers"}>
-              <li className="hover:text-green-500">Trousers</li>
+              <li className="hover:text-blue-500">Trousers</li>
             </Link>
           </ul>
         </div>
@@ -126,7 +126,7 @@ const Navbar = ({
 
           {!user.value && (
             <Link href={"/login"}>
-              <button className="bg-green-700 px-2 py-1 rounded-md text-sm text-white mx-4">
+              <button className="bg-blue-700 px-2 py-1 rounded-md text-sm text-white mx-4">
                 Login
               </button>
             </Link>
@@ -135,7 +135,7 @@ const Navbar = ({
         </div>
         <div
           ref={ref}
-          className={`w-60 h-[100vh] sidecart top-0 overflow-y-scroll absolute bg-green-200 px-8 py-10 text-base transition-all ${
+          className={`w-60 h-[100vh] sidecart top-0 overflow-y-scroll absolute bg-blue-200 px-8 py-10 text-base transition-all ${
             sidebar ? "right-0" : "-right-96"
           } `}
         >
@@ -196,7 +196,7 @@ const Navbar = ({
             <Link href={"/checkout"} legacyBehavior>
               <button
                 disabled={Object.keys(cart).length === 0 || !user.value}
-                className=" disabled:bg-green-300 flex mr-2  text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm"
+                className=" disabled:bg-blue-300 flex mr-2  text-white bg-blue-500 border-0 py-2 px-2 focus:outline-none hover:bg-blue-600 rounded text-sm"
               >
                 Checkout
               </button>
@@ -204,7 +204,7 @@ const Navbar = ({
             <button
               disabled={Object.keys(cart).length === 0}
               onClick={clearCart}
-              className="  disabled:bg-green-300 flex text-white bg-green-500 border-0 py-2 px-1 focus:outline-none hover:bg-green-600 rounded text-sm"
+              className="  disabled:bg-blue-300 flex text-white bg-blue-500 border-0 py-2 px-1 focus:outline-none hover:bg-blue-600 rounded text-sm"
             >
               Clear Cart
             </button>

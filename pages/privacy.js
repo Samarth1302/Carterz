@@ -7,7 +7,7 @@ export default function Privacy() {
         <title>Privacy Policy - Carterz</title>
       </Head>
 
-      <header className="bg-green-600 py-4">
+      <header className="bg-blue-600 py-4">
         <div className="container mx-auto">
           <h1 className="text-3xl font-semibold text-white">Privacy Policy</h1>
         </div>

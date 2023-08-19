@@ -113,7 +113,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="w-4 h-4 text-green-500"
+                    className="w-4 h-4 text-blue-500"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -124,7 +124,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="w-4 h-4 text-green-500"
+                    className="w-4 h-4 text-blue-500"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -135,7 +135,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="w-4 h-4 text-green-500"
+                    className="w-4 h-4 text-blue-500"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -146,7 +146,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="w-4 h-4 text-green-500"
+                    className="w-4 h-4 text-blue-500"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -157,7 +157,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="w-4 h-4 text-green-500"
+                    className="w-4 h-4 text-blue-500"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -273,7 +273,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
                       onChange={(e) => {
                         refreshVar(e.target.value, color);
                       }}
-                      className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10"
+                      className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 text-base pl-3 pr-10"
                     >
                       {color &&
                         Object.keys(variants[color]).includes("S") &&
@@ -338,7 +338,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
                   onClick={() => {
                     buyNow(slug, 1, product.price, product.title, size, color);
                   }}
-                  className="flex ml-8 text-white bg-green-500 disabled:bg-green-300  border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded"
+                  className="flex ml-8 text-white bg-blue-500 disabled:bg-blue-300  border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-blue-600 rounded"
                 >
                   Buy Now
                 </button>
@@ -354,8 +354,8 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
                       color
                     )
                   }
-                  className="flex ml-4 text-white bg-green-500 
-                  disabled:bg-green-300 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded"
+                  className="flex ml-4 text-white bg-blue-500 
+                  disabled:bg-blue-300 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-blue-600 rounded"
                 >
                   Add to Cart
                 </button>
@@ -381,7 +381,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
                 />
                 <button
                   onClick={checkService}
-                  className="text-white bg-green-500 border-0 py-2 px-6  focus:outline-none hover:bg-green-600 rounded"
+                  className="text-white bg-blue-500 border-0 py-2 px-6  focus:outline-none hover:bg-blue-600 rounded"
                 >
                   Check
                 </button>

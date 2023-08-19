@@ -22,7 +22,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/tshirts"}
-                    className="text-gray-600 hover:text-green-500"
+                    className="text-gray-600 hover:text-blue-500"
                   >
                     T-shirts
                   </Link>
@@ -30,7 +30,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/jackets"}
-                    className="text-gray-600 hover:text-green-500"
+                    className="text-gray-600 hover:text-blue-500"
                   >
                     Jackets
                   </Link>
@@ -38,7 +38,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/trousers"}
-                    className="text-gray-600 hover:text-green-500"
+                    className="text-gray-600 hover:text-blue-500"
                   >
                     Trousers
                   </Link>
@@ -46,7 +46,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/shoes"}
-                    className="text-gray-600 hover:text-green-500"
+                    className="text-gray-600 hover:text-blue-500"
                   >
                     Shoes
                   </Link>
@@ -62,7 +62,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/privacy"}
-                    className="text-gray-600 hover:text-green-500"
+                    className="text-gray-600 hover:text-blue-500"
                   >
                     Privacy Policy
                   </Link>
@@ -70,7 +70,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/return"}
-                    className="text-gray-600 hover:text-green-500"
+                    className="text-gray-600 hover:text-blue-500"
                   >
                     Return Policy
                   </Link>
@@ -78,7 +78,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/tandc"}
-                    className="text-gray-600 hover:text-green-500"
+                    className="text-gray-600 hover:text-blue-500"
                   >
                     Terms and Conditions
                   </Link>
@@ -93,7 +93,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/contact"}
-                    className="text-gray-600 hover:text-green-500"
+                    className="text-gray-600 hover:text-blue-500"
                   >
                     Contact Us
                   </Link>
@@ -101,7 +101,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/about"}
-                    className="text-gray-600 hover:text-green-500"
+                    className="text-gray-600 hover:text-blue-500"
                   >
                     About
                   </Link>

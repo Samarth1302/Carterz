@@ -8,7 +8,7 @@ const About = () => {
         <title>About Us - Carterz</title>
       </Head>
 
-      <header className="bg-green-800 py-4">
+      <header className="bg-blue-800 py-4">
         <div className="container mx-auto">
           <h1 className="text-3xl font-semibold text-white">About Us</h1>
         </div>

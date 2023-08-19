@@ -192,7 +192,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
               type="text"
               id="name"
               name="name"
-              className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
         </div>
@@ -207,7 +207,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 readOnly={true}
               />
             ) : (
@@ -217,7 +217,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             )}
           </div>
@@ -236,7 +236,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
             cols="10"
             rows="2"
             placeholder="Type your full address"
-            className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
           ></textarea>
         </div>
       </div>
@@ -253,7 +253,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
               placeholder="Type your 10-digit phone number"
               id="phone"
               name="phone"
-              className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
         </div>
@@ -271,7 +271,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
               type="text"
               id="pincode"
               name="pincode"
-              className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
         </div>
@@ -288,7 +288,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
               type="text"
               id="state"
               name="state"
-              className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
         </div>
@@ -303,14 +303,14 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
               type="text"
               id="city"
               name="city"
-              className="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
         </div>
       </div>
 
       <h2 className="font-semibold text-xl">2. Review Cart and Pay</h2>
-      <div className=" sidecart bg-green-200 p-6 m-2">
+      <div className=" sidecart bg-blue-200 p-6 m-2">
         <ol className="list-decimal font-semibold">
           {Object.keys(cart).length == 0 && (
             <div className="my-4 font-semibold">Your cart is empty</div>
@@ -363,7 +363,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
           <button
             disabled={disable}
             onClick={initPayment}
-            className="disabled:bg-green-300 flex mr-2  text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm"
+            className="disabled:bg-blue-300 flex mr-2  text-white bg-blue-500 border-0 py-2 px-2 focus:outline-none hover:bg-blue-600 rounded text-sm"
           >
             Pay ₹{total}
           </button>
