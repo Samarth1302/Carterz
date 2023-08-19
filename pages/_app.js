@@ -4,6 +4,8 @@ import "@/styles/globals.css";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import LoadingBar from "react-top-loading-bar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App({ Component, pageProps }) {
   const [cart, setCart] = useState({});
@@ -88,7 +90,20 @@ export default function App({ Component, pageProps }) {
     newCart[itemId] = { qty: 1, price, iName, size, type };
     setCart(newCart);
     saveCart(newCart);
-    router.push("/checkout");
+    if (user.value) {
+      router.push("/checkout");
+    } else {
+      toast.error("Please Login to buy a product", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   return (
@@ -98,6 +113,18 @@ export default function App({ Component, pageProps }) {
         progress={progress}
         waitingTime={300}
         onLoaderFinished={() => setProgress(0)}
+      />
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
       />
       {key && (
         <Navbar

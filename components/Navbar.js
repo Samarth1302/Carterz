@@ -184,7 +184,7 @@ const Navbar = ({
           <div className="flex my-4">
             <Link href={"/checkout"} legacyBehavior>
               <button
-                disabled={Object.keys(cart).length === 0}
+                disabled={Object.keys(cart).length === 0 || !user.value}
                 className=" disabled:bg-green-300 flex mr-2  text-white bg-green-500 border-0 py-2 px-2 focus:outline-none hover:bg-green-600 rounded text-sm"
               >
                 Checkout
@@ -198,6 +198,11 @@ const Navbar = ({
               Clear Cart
             </button>
           </div>
+          {!user.value && (
+            <span className="text-red-700 text-sm">
+              Please login to buy a product
+            </span>
+          )}
         </div>
       </div>
     </>
