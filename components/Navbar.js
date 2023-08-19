@@ -60,7 +60,7 @@ const Navbar = ({
             }}
             className="fixed right-11 bg-white shadow-lg border top-10 rounded-md px-5 w-32 py-2 z-20"
           >
-            <ul className="text-xl">
+            <ul className="text-xl ">
               <Link href={"/myaccount"}>
                 <li className="py-1 text-sm hover:text-blue-600 font-bold">
                   My Account
@@ -95,7 +95,7 @@ const Navbar = ({
           </Link>
         </div>
         <div className="nav">
-          <ul className="flex items-center mx-7 space-x-6 font-bold  md:text-lg">
+          <ul className="flex items-center mx-7 space-x-6 font-bold sm:text-base md:text-lg">
             <Link href={"/tshirts"}>
               <li className="hover:text-blue-500">Tshirts</li>
             </Link>
@@ -120,7 +120,7 @@ const Navbar = ({
             }}
           >
             {user.value && (
-              <MdAccountCircle className=" text-xl mx-4 md:text-2xl" />
+              <MdAccountCircle className="text-xl mx-4 md:text-2xl" />
             )}
           </span>
 
@@ -131,7 +131,11 @@ const Navbar = ({
               </button>
             </Link>
           )}
-          <BsCart2 onClick={toggleCart} className=" text-xl md:text-2xl" />
+          <BsCart2
+            onClick={toggleCart}
+            className=" text-xl md:text-2xl"
+            style={{ color: "blue" }}
+          />
         </div>
         <div
           ref={ref}
@@ -144,7 +148,7 @@ const Navbar = ({
             onClick={toggleCart}
             className="absolute top-5 right-2 cursor-pointer text-2xl"
           >
-            <AiOutlineCloseCircle />
+            <AiOutlineCloseCircle style={{ color: "blue" }} />
           </span>
           <ol className="list-decimal font-semibold ">
             {Object.keys(cart).length == 0 && (
