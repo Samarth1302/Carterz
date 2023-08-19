@@ -7,13 +7,11 @@ const About = () => {
       <Head>
         <title>About Us - Carterz</title>
       </Head>
-
-      <header className="bg-blue-800 py-4">
+      <header className="bg-blue-800 py-4 px-4">
         <div className="container mx-auto">
           <h1 className="text-3xl font-semibold text-white">About Us</h1>
         </div>
       </header>
-
       <main className="container mx-auto py-8">
         <section className="bg-white rounded-lg p-6 shadow-md">
           <h2 className="text-xl font-semibold">1. Our Story</h2>

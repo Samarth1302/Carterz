@@ -8,7 +8,7 @@ const Contact = () => {
         <title>Contact Us - Carterz</title>
       </Head>
 
-      <header className="bg-blue-700 py-4">
+      <header className="bg-blue-700 py-4 px-4">
         <div className="container mx-auto">
           <h1 className="text-3xl font-semibold text-white">Contact Us</h1>
         </div>

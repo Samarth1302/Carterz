@@ -61,7 +61,7 @@ export default function Home() {
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
+                    strokeWidth="0"
                     viewBox="0 0 320 512"
                     class="text-3xl"
                     height="1em"
@@ -86,7 +86,7 @@ export default function Home() {
                   <svg
                     stroke="#22c55eff"
                     fill="currentColor"
-                    stroke-width="0"
+                    strokeWidth="0"
                     viewBox="0 0 640 512"
                     class="text-3xl"
                     height="1em"

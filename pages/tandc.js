@@ -7,7 +7,7 @@ export default function TAndC() {
         <title>Terms and Conditions - Carterz</title>
       </Head>
 
-      <header className="bg-blue-600 py-4">
+      <header className="bg-blue-600 py-4 px-4">
         <div className="container mx-auto">
           <h1 className="text-3xl font-semibold text-white">
             Terms and Conditions
