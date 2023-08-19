@@ -61,7 +61,7 @@ const Footer = () => {
               <nav className="list-none mb-10">
                 <li>
                   <Link
-                    href={"/"}
+                    href={"/privacy"}
                     className="text-gray-600 hover:text-green-500"
                   >
                     Privacy Policy
@@ -69,7 +69,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href={"/"}
+                    href={"/return"}
                     className="text-gray-600 hover:text-green-500"
                   >
                     Return Policy
@@ -77,7 +77,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href={"/"}
+                    href={"/tandc"}
                     className="text-gray-600 hover:text-green-500"
                   >
                     Terms and Conditions
@@ -92,7 +92,7 @@ const Footer = () => {
               <nav className="list-none mb-10">
                 <li>
                   <Link
-                    href={"/"}
+                    href={"/contact"}
                     className="text-gray-600 hover:text-green-500"
                   >
                     Contact Us
@@ -100,7 +100,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href={"/"}
+                    href={"/about"}
                     className="text-gray-600 hover:text-green-500"
                   >
                     About

@@ -25,7 +25,18 @@ const Navbar = ({
 
   useEffect(() => {
     Object.keys(cart).length !== 0 && setSidebar(true);
-    let nonSide = ["/checkout", "/order", "/orders", "/", "/myaccount"];
+    let nonSide = [
+      "/checkout",
+      "/order",
+      "/orders",
+      "/",
+      "/myaccount",
+      "/return",
+      "/privacy",
+      "/about",
+      "/contact",
+      "/tandc",
+    ];
     if (nonSide.includes(router.pathname)) {
       setSidebar(false);
     }
