@@ -11,6 +11,7 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
   const { slug } = router.query;
   const [pin, setPin] = useState("");
   const [service, setService] = useState(null);
+  const [status, setStatus] = useState(false);
   const [color, setColor] = useState();
   const [size, setSize] = useState();
   const [isShoe, setIsShoe] = useState(false);
@@ -58,6 +59,12 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
   };
   const onChangePin = (e) => {
     setPin(e.target.value);
+    setService(null);
+    if (e.target.value.length === 6) {
+      setStatus(true);
+    } else {
+      setStatus(false);
+    }
   };
 
   const refreshVar = (newSize, newColor) => {
@@ -386,12 +393,12 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
                   Check
                 </button>
               </div>
-              {!service && service != null && (
+              {status && !service && service != null && (
                 <div className="text-red-700 text-base mt-3">
                   Sorry! We do not deliver to this pincode yet
                 </div>
               )}
-              {service && service != null && (
+              {status && service && service != null && (
                 <div className="text-green-700 text-base mt-3">
                   Woohoo! This area is Serviceable
                 </div>

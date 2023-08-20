@@ -131,11 +131,7 @@ const Navbar = ({
               </button>
             </Link>
           )}
-          <BsCart2
-            onClick={toggleCart}
-            className=" text-xl md:text-2xl"
-            style={{ color: "blue" }}
-          />
+          <BsCart2 onClick={toggleCart} className=" text-xl md:text-2xl" />
         </div>
         <div
           ref={ref}
