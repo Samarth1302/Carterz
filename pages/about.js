@@ -17,7 +17,7 @@ const About = () => {
           <h2 className="text-xl font-semibold">1. Our Story</h2>
           <p>
             At Carterz, our journey began with a passion for providing quality
-            products and exceptional customer service. Founded in [Year], we've
+            products and exceptional customer service. Founded in 2023, we've
             since grown into a trusted online marketplace, serving customers
             worldwide.
           </p>
