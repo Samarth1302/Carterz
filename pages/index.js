@@ -7,14 +7,28 @@ export default function Home() {
     <>
       <Head>
         <title>Carterz</title>
-        <meta name="description" content="Carterz E-Commerce Platform" />
+        <meta
+          name="description"
+          content="Carterz E-Commerce Platform - Shop the Web using Carterz.  A cutting-edge ecommerce platform designed to redefine online shopping. Carterz seamlessly combines sleek design with robust functionality, offering users an intuitive interface to explore a diverse range of products. Our haven is designed to stretch your budget without compromising quality. Carterz ensures your cravings are met at lightning speed, with seamless deliveries."
+        />
+        <meta
+          name="keywords"
+          content="e-commerce, shopping, online shopping, Carterz, payments, cart, orders"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className=" flex flex-col items-center">
-        <Image src="/home.png" alt="Home" width={800} height={550} />
+        <Image
+          src="/home.png"
+          alt="Carterz -Ecommerce Platform Home"
+          width={800}
+          height={550}
+        />
         <a
           href="https://www.freepik.com/free-vector/ecommerce-checkout-laptop-concept-illustration_21726897.htm#query=e%20commerce&position=24&from_view=keyword&track=ais"
           className="mt-1 text-xs text-gray-400"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Image by storyset on Freepik
         </a>{" "}

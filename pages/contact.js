@@ -6,6 +6,10 @@ const Contact = () => {
     <div className="bg-gray-100 min-h-screen">
       <Head>
         <title>Contact Us - Carterz</title>
+        <meta
+          name="keywords"
+          content="e-commerce, shopping, online shopping, Carterz"
+        />
       </Head>
 
       <header className="bg-blue-700 py-4 px-4">

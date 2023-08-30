@@ -6,6 +6,10 @@ const About = () => {
     <div className="bg-gray-100 min-h-screen">
       <Head>
         <title>About Us - Carterz</title>
+        <meta
+          name="keywords"
+          content="e-commerce, shopping, online shopping, Carterz"
+        />
       </Head>
       <header className="bg-blue-800 py-4 px-4">
         <div className="container mx-auto">

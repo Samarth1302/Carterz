@@ -83,6 +83,10 @@ const Post = ({ addtoCart, product, variants, buyNow, error }) => {
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
         />
+        <meta
+          name="keywords"
+          content="e-commerce, shopping, online shopping, Carterz, products, cart"
+        />
       </Head>
       <section className="text-gray-600 body-font overflow-hidden">
         <ToastContainer

@@ -5,6 +5,10 @@ export default function TAndC() {
     <div className="bg-gray-100 min-h-screen">
       <Head>
         <title>Terms and Conditions - Carterz</title>
+        <meta
+          name="keywords"
+          content="e-commerce, shopping, online shopping, Carterz"
+        />
       </Head>
 
       <header className="bg-blue-600 py-4 px-4">

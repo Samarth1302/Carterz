@@ -13,6 +13,11 @@ const Tshirts = ({ products }) => {
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
         />
+        <meta
+          name="keywords"
+          content="e-commerce, shopping, online shopping, Carterz, tshirts, printed, shirts, tees"
+        />
+        <meta name="author" content="Your Name" />
       </Head>
       <section className="text-gray-600 body-font">
         <div className="min-h-screen container px-5 py-24 mx-auto">
