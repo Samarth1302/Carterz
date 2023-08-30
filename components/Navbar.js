@@ -21,6 +21,7 @@ const Navbar = ({
 }) => {
   const [dropdown, setDropdown] = useState(false);
   const [sidebar, setSidebar] = useState(false);
+
   const router = useRouter();
 
   useEffect(() => {

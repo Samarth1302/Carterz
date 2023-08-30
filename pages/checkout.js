@@ -12,6 +12,7 @@ const Checkout = ({ cart, clearCart, addtoCart, removefromCart, total }) => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [pincode, setPincode] = useState("");
+
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [disable, setDisable] = useState(true);

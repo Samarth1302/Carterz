@@ -12,7 +12,9 @@ export default function App({ Component, pageProps }) {
   const [total, setTotal] = useState(0);
   const [user, setUser] = useState({ value: null });
   const [key, setKey] = useState();
+  const [dark, setDark] = useState(false);
   const router = useRouter();
+
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -131,6 +133,7 @@ export default function App({ Component, pageProps }) {
           user={user}
           key={key}
           cart={cart}
+          dark={dark}
           addtoCart={addtoCart}
           removefromCart={removefromCart}
           clearCart={clearCart}
@@ -139,6 +142,7 @@ export default function App({ Component, pageProps }) {
         />
       )}
       <Component
+        dark={dark}
         cart={cart}
         addtoCart={addtoCart}
         removefromCart={removefromCart}
@@ -147,7 +151,7 @@ export default function App({ Component, pageProps }) {
         buyNow={buyNow}
         {...pageProps}
       />
-      <Footer />
+      <Footer dark={dark} />
     </>
   );
 }
