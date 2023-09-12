@@ -4,25 +4,25 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div>
-      <footer className="text-gray-600 bg-gray-50 body-font">
+      <footer className="text-white bg-blue-500 body-font">
         <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
             <Link href={"/"} legacyBehavior>
-              <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+              <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
                 <img src="/logo.png" alt="logo" width={300}></img>
               </a>
             </Link>
           </div>
           <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
             <div className="lg:w-1/3 w-full px-4">
-              <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+              <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">
                 PRODUCTS
               </h2>
               <nav className="list-none mb-10">
                 <li>
                   <Link
                     href={"/tshirts"}
-                    className="text-gray-600 hover:text-blue-500"
+                    className="text-white hover:text-blue-500"
                   >
                     T-shirts
                   </Link>
@@ -30,7 +30,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/jackets"}
-                    className="text-gray-600 hover:text-blue-500"
+                    className="text-white hover:text-blue-500"
                   >
                     Jackets
                   </Link>
@@ -38,7 +38,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/trousers"}
-                    className="text-gray-600 hover:text-blue-500"
+                    className="text-white hover:text-blue-500"
                   >
                     Trousers
                   </Link>
@@ -46,7 +46,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/shoes"}
-                    className="text-gray-600 hover:text-blue-500"
+                    className="text-white hover:text-blue-500"
                   >
                     Shoes
                   </Link>
@@ -62,7 +62,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/privacy"}
-                    className="text-gray-600 hover:text-blue-500"
+                    className="text-white hover:text-blue-500"
                   >
                     Privacy Policy
                   </Link>
@@ -70,7 +70,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/return"}
-                    className="text-gray-600 hover:text-blue-500"
+                    className="text-white hover:text-blue-500"
                   >
                     Return Policy
                   </Link>
@@ -78,7 +78,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/tandc"}
-                    className="text-gray-600 hover:text-blue-500"
+                    className="text-white hover:text-blue-500"
                   >
                     Terms and Conditions
                   </Link>
@@ -93,7 +93,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/contact"}
-                    className="text-gray-600 hover:text-blue-500"
+                    className="text-white hover:text-blue-500"
                   >
                     Contact Us
                   </Link>
@@ -101,7 +101,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href={"/about"}
-                    className="text-gray-600 hover:text-blue-500"
+                    className="text-white hover:text-blue-500"
                   >
                     About
                   </Link>
