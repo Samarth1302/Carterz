@@ -43,7 +43,7 @@ const Orders = () => {
         />
       </Head>
       <h1 className="font-semibold text-center text-xl p-8">My Orders</h1>
-      <div className="container mx-auto">
+      <div className="min-h-screen container mx-auto">
         <div className="flex flex-col">
           <div className="overflow-x-auto px-8 sm:-mx-6 lg:-mx-8">
             <div className="py-2 inline-block min-w-full  sm:px-6 lg:px-8">
